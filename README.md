@@ -32,6 +32,8 @@ getNumOfLinesThreadPool is faster than getNumOfLinesThreads because it uses the 
 
 * Another benefit is the way it handles the Future objects it returns after the completion of task which makes it more easy to retrieve the results, also the ThreadPool allows you to control the number of thread it uses, that means you can optimize the number of threads to match the number of available cores in your system to avoid thread context switching overhead.
 
+![image](https://user-images.githubusercontent.com/118682445/211606957-58cbee95-fee0-4ee6-8fc3-8689d42535f2.png)
+
 **********************
 
 **Ex2_2:**
@@ -69,5 +71,8 @@ compareTo(Task task) compares priorities of two tasks by returning 1, 0, -1 if t
 Additionally, it has two createTask static methods that creates a new instance of task class and assigns priority to it.
 
 This class also provides a way to query the highest priority task currently in the queue in constant time, getCurrentMax()
+ 
+ ![image](https://user-images.githubusercontent.com/118682445/211607087-a057bc48-52c0-4842-8712-71c71fcc49c5.png)
+
 
 
