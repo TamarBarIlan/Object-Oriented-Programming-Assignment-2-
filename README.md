@@ -1,6 +1,6 @@
 # Object-Oriented-Programming-Assignment-2-
 
-Ex2_1:
+**Ex2_1:**
 
 This is a Java program that creates text files with a specified number of lines containing the text "Erga and Tamar", then counts the total number of lines in all of the files using three different methods:
 
@@ -22,11 +22,6 @@ The program prints the total time taken by each method to count the lines.
 
 Time analysis:
 
-*****
-getNumOfLinesThreadPool() is faster than getNumOfLinesThreads() and getNumOfLines() because it uses a thread pool, which allows it to reuse threads rather than creating new ones for each task. This means that it has less overhead and can execute tasks more efficiently. Additionally, getNumOfLinesThreadPool() uses the ExecutorService interface and its submit() method to submit tasks to the thread pool, which allows it to execute tasks concurrently and wait for their completion without explicitly creating and managing threads. This can also contribute to improved performance.
-The getNumOfLinesThreads() method is faster than the getNumOfLines() method because it uses multiple threads to count the number of lines in the text files, whereas the getNumOfLines() method uses a single thread to count the number of lines.
-*****
-
 In the getNumOfLinesThreads() method, an array of threads is created, with one thread for each text file. Each thread is responsible for counting the number of lines in a single text file. These threads are then started and run concurrently. This means that while one thread is counting the number of lines in one text file, other threads can be counting the number of lines in other text files. This allows the program to take advantage of multiple processors and cores, which can greatly increase the speed at which the program counts the number of lines in the text files.
 In contrast, the getNumOfLines() method uses a single thread to count the number of lines in all of the text files, one at a time. This means that if there are multiple text files, the program will need to wait for one file to be processed before moving on to the next one, which can greatly slow down the program.
 
@@ -39,9 +34,9 @@ getNumOfLinesThreadPool is faster than getNumOfLinesThreads because it uses the 
 
 **********************
 
-Ex2_2:
+**Ex2_2:**
  
- class CustomExecutor<T>:
+ **class CustomExecutor<T>:**
  
  This code is a custom implementation of the Java Executor framework. It extends the ThreadPoolExecutor class and adds additional functionality for prioritizing tasks.
 
@@ -56,11 +51,9 @@ The CustomExecutor class maintains an internal array to keep track of the highes
 The CustomExecutor class provides a gracefullyTerminate() method, which will stop accepting new tasks and complete all of the tasks it has already received before stopping.
 
 When using this class, it is important to note that the number of threads in the collection of threads in CustomExecutor will be at least half of the number of processors available for the JVM, and at most the number of processors available less 1.
-  
-  *************
 
-class Task<T>:
-  
+ **class Task<T>:**
+ 
   This code defines a Task class that extends FutureTask and implements Callable and Comparable<Task<T>>. It is intended to be used as a way to assign priority levels to tasks submitted to a custom thread pool executor (CustomExecutor) that sorts tasks by priority.
 
 The Task class has two constructors:
