@@ -1,17 +1,30 @@
 @startuml
 
 class Ex2_1 implements Callable{
-
     + String[] createTextFiles(int n, int seed, int bound)
      + int getNumOfLines(String[] fileNames)
      + int getNumOfLinesThreads(String[] fileNames)
-
     + int getNumOfLinesThreadPool(String[] fileNames)
 
 }
-interface Callable{
-    + p
+
+class ThreadNumLines extends Thread{
+    - String fileName;
+    - int numOfLine = 0;
+
+    + ThreadNumLines(String filename)
+    + void run()
+    + int getNumOfLine()
 }
+
+class ThreadPoolNumLines implements Callable {
+    - String fileName;
+
+    + ThreadPoolNumLines(String fileName)
+    + Integer call() throws Exception
+}
+
+
 
 
 @enduml

@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class CustomExecutor<T>  extends ThreadPoolExecutor{
+
+   + int arrPriority[] = new int[10];
+
+   + CustomExecutor()
+   + Future<T> submit(@NotNull Task task)
+   + Future<T> submit(Callable callable, TaskType taskType)
+   + Future<T> submit(Callable callable)
+   + void gracefullyTerminate()
+   # <T> RunnableFuture<T> newTaskFor( Callable<T> callable )
+   # void afterExecute(Runnable r, Throwable t)
+   + int getCurrentMax()
+}
+
+class Task extends FutureTask implements Callable, Comparable{
+    - Callable<T> task;
+    - TaskType taskType;
+
+    - Task(Callable<T> task, TaskType taskType)
+    + static Task createTask(Callable task, TaskType taskType)
+    + static Task createTask(Callable task)
+    + T call()
+    + TaskType getTaskType()
+    + Callable<T> getTask()
+    + int compareTo(Task task)
+}
+
+class CastClass extends FutureTask {
+    - Callable<T> callable;
+
+    + CastClass(Callable<T> callable)
+    + Callable<T> getCallable()
+}
+
+enum TaskType {
+    COMPUTATIONAL = 1
+    IO = 2
+    OTHER = 3
+    - int typePriority;
+    - TaskType(int priority)
+    + void setPriority(int priority)
+    + int getPriorityValue()
+    + TaskType getType()
+    - static boolean validatePriority(int priority)
+}
+
+
+
+@enduml
