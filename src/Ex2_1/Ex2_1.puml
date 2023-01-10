@@ -1,0 +1,17 @@
+@startuml
+
+class Ex2_1 implements Callable{
+
+    + String[] createTextFiles(int n, int seed, int bound)
+     + int getNumOfLines(String[] fileNames)
+     + int getNumOfLinesThreads(String[] fileNames)
+
+    + int getNumOfLinesThreadPool(String[] fileNames)
+
+}
+interface Callable{
+    + p
+}
+
+
+@enduml
