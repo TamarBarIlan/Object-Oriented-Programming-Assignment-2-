@@ -74,6 +74,6 @@ public class CustomExecutor<T>  extends ThreadPoolExecutor{
                 return i+1;
             }
         }
-        return -1;
+        return 0;
     }
 }
