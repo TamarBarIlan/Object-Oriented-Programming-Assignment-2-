@@ -44,7 +44,13 @@ public class CustomExecutor<T>  extends ThreadPoolExecutor{
 
     //The CustomExecutor will stop accepting new tasks, and will complete all the tasks it has already received.
     public void gracefullyTerminate() {
-       super.shutdown();
+       try {
+           super.shutdown();
+           super.awaitTermination(2, TimeUnit.SECONDS);
+       }
+       catch (Exception e){
+           System.out.println(e);
+       }
     }
 
     //When CustomExecutor is creating new RunnableFuture it's using CastClass<T>
